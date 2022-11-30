@@ -10,6 +10,7 @@
     // Chargement des variables d'environnement
     // $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
     $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-
+    $dotenv->load();
 
     // Chargement du conteneur de dépendances
+    require __DIR__ . "/di/container.php";
