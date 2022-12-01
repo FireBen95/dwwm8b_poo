@@ -3,25 +3,22 @@ declare(strict_types=1);
 
 namespace App\Controller\Welcome;
 
+use App\Zinc\AbstractController\AbstractController;
 use App\Zinc\Routing\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-    class WelcomeController
+    class WelcomeController extends AbstractController
     {
         
         #[Route('/', name: "welcome.index", methods: ['GET'])]
         public function index() : Response
         {
-            $content = <<<HTML
-            <h1>Hello World</h1>
-
-            <p>jhbjhjgjhjkhkjkjkjkkhjk</p>
-HTML;
-            return new Response(
-                $content,
-                Response::HTTP_OK,
-                ['content-type' => 'text/html']
-            ); 
+            $nom = "Jeudi aprèm";
+            $jours = ["Lundi", "Mardi", "Mercredi", "Jeud", "Vendredi"];
+            return $this->render("index.html.twig", [
+                "nom"=> $nom,
+                "jours" => $jours
+        ]); 
                       
         }
 
