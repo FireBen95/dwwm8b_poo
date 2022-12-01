@@ -1,7 +1,8 @@
 <?php
-namespace App\Trait;
+namespace App\Zinc\Trait;
 
-    trait changeTimeZone
+
+    trait ChangeTimeZone
     {
         public function changeTimeZone($timezone) : void
         {

@@ -33,3 +33,7 @@ use App\Kernel;
     $response = $kernel->handleRequest();
 
 
+    // Le contrôleur frontal envoie la réponse au client
+    $response->send();
+
+

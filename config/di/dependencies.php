@@ -1,6 +1,11 @@
 <?php
 
+use App\Zinc\Routing\Router;
+use App\Zinc\Routing\RouterInterface;
+use App\Controller\Error\ErrorController;
+use App\Controller\Welcome\WelcomeController;
 use Symfony\Component\HttpFoundation\Request;
+
 
     return [
 
@@ -9,11 +14,13 @@ use Symfony\Component\HttpFoundation\Request;
 
         // Liste des contôleurs
         'controllers' => [
-
+            "WelcomeController" => WelcomeController::class,
+            "ErrorController" => ErrorController::class,
         ],
 
+        
         // Le routeur
-        DI\create(Router::class)->constructor(DI\get(Request::class), DI\get('controllers')),
+        RouterInterface::class => DI\create(Router::class)->constructor(DI\get(Request::class), DI\get('controllers')),
 
     ];
 
